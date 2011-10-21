@@ -10,6 +10,7 @@ StackTrace  = require('../common/StackTrace')
 IDGenerator = require('../common/IDGenerator')
 HookLib     = require('../common/HookLib')
 Weinre      = require('../common/Weinre')
+Ex          = require('../common/Ex')
 HookSites   = require('./HookSites')
 
 Loader =
@@ -25,7 +26,6 @@ module.exports = class NetworkRequest
 
     #---------------------------------------------------------------------------
     handleSend: (data) ->
-
         Weinre.wi.NetworkNotify.identifierForInitialRequest(@id, @url, Loader, @stackTrace)
 
         time             = Date.now() / 1000.0
@@ -36,7 +36,6 @@ module.exports = class NetworkRequest
 
     #---------------------------------------------------------------------------
     handleHeadersReceived: ->
-
         time     = Date.now() / 1000.0
         response = getResponse(@xhr)
         Weinre.wi.NetworkNotify.didReceiveResponse(@id, time, "XHR", response)
@@ -46,7 +45,6 @@ module.exports = class NetworkRequest
 
     #---------------------------------------------------------------------------
     handleDone: ->
-
         sourceString = @xhr.responseText
         Weinre.wi.NetworkNotify.setInitialContent(@id, sourceString, "XHR")
 
@@ -86,7 +84,6 @@ module.exports = class NetworkRequest
 
                 HookLib.ignoreHooks ->
                     xhr.addEventListener "readystatechange", getXhrEventHandler(xhr), false
-
 
         #-----------------------------------------------------------------------
         HookSites.XMLHttpRequest_send.addHooks
@@ -173,7 +170,7 @@ getXhrEventHandler = (xhr) ->
         return unless nr
 
         switch xhr.readyState
-            when XMLHttpRequest.HEADERS_RECEIVED then nr.handleHeadersReceived()
-            when XMLHttpRequest.LOADING          then nr.handleLoading()
-            when XMLHttpRequest.DONE             then nr.handleDone()
+            when 2 then nr.handleHeadersReceived()
+            when 3 then nr.handleLoading()
+            when 4 then nr.handleDone()
 
