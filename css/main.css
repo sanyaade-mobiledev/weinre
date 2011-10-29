@@ -20,25 +20,21 @@ body {
     -moz-border-radius-bottomright:     0.5em;
     -webkit-border-bottom-right-radius: 0.5em;
     padding:                0.25em 0.5em;
-    background-color:       #F33;
-    color:                  #FF0;
+    background-color:       #FF0;
     font-style:             italic;
     -webkit-box-shadow:     5px 5px 15px #888;
     -moz-box-shadow:        5px 5px 15px #888;
     box-shadow:             5px 5px 15px #888;
 }
 
-.round-border {
-    border:                thin solid black;
-    -moz-border-radius:    0.5em;
-    -webkit-border-radius: 0.5em;
-    padding-left:          1em;
-    padding-right:          1em;
-}
-
 /*-----------------------------------------------------------------*/
 .no-decoration {
     text-decoration:        none;
+}
+
+/*-----------------------------------------------------------------*/
+.strike {
+    text-decoration:        line-through;
 }
 
 /*-----------------------------------------------------------------*/

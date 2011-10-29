@@ -1,1 +1,1 @@
-weinre build 1.5.0build-2011-10-28--11-28-19 by The Unknown Builder
+weinre build 1.6.0build-2011-10-29--00-22-24 by The Unknown Builder
