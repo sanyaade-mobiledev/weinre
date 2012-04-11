@@ -1,213 +1,24 @@
-<!doctype html>
-
-<!--
- * weinre is available under *either* the terms of the modified BSD license *or* the
- * MIT License (2008). See http://opensource.org/licenses/alphabetical for full text.
- *
- * Copyright (c) 2010, 2011 IBM Corporation
--->
-
 <html>
+
 <head>
-<title>weinre - Home</title>
-<link rel="stylesheet" href="css/main.css" type="text/css">
-<link rel="shortcut icon" href="images/weinre-icon-64x64.png" />
+<title>I've Been Moved</title>
+<style>
+body { font-size: 200%; }
+</style>
 </head>
 
 <body>
+<h1>I've Been Moved</h1>
 
-<a class="no-decoration" href="https://github.com/callback/callback-weinre"><div class="ribbon">Fork weinre on GitHub</div></a>
+<p>PhoneGap has been accepted into the Apache Software Foundation for incubation 
+as Apache Cordova, where it will remain free and open source. 
+This will ensure open, independent stewardship of the project over the long term.
 
-<!-- ======================================================================= -->
-<h1 class="page-title">weinre - Home</h1>
+<p>The project page for Cordova at Apache is: 
+<a href="http://incubator.apache.org/cordova/">http://incubator.apache.org/cordova/</a>
 
-<div class="toc">
-  <a href="Home.html">Home</a>
-- <a href="UserInterface.html">User Interface</a>
-- <a href="Installing.html">Installing</a>
-- <a href="Running.html">Running</a>
-- <a href="MultiUser.html">Multi-User</a>
-- <a href="Security.html">Security</a>
-- <a href="Building.html">Building</a>
-- <a href="ChangeLog.html">ChangeLog</a>
-- <a href="License.html">License</a>
-<p>
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</div>
-
-
-<!--
- * weinre is available under *either* the terms of the modified BSD license *or* the
- * MIT License (2008). See http://opensource.org/licenses/alphabetical for full text.
- *
- * Copyright (c) 2010, 2011 IBM Corporation
--->
-
-<p><span class="weinre">weinre</span> is <b>WE</b>b <b>IN</b>spector <b>RE</b>mote.
-Pronounced like the word "winery".  Or maybe like the word "weiner".  Who knows,
-really.
-
-<p><span class="weinre">weinre</span> is a debugger for web pages, like
-FireBug (for FireFox)
-and
-Web Inspector (for WebKit-based browsers), except it's designed
-to work <b>remotely</b>, and in particular, to <b>allow you debug web pages
-on a mobile device such as a phone</b>.
-
-<p>Interesting places to visit:
-<table>
-<tr><td>- videos at YouTube:               <td><a href="http://www.youtube.com/results?search_query=weinre">http://www.youtube.com/results?search_query=weinre</a>
-<tr><td>- this documentation at GitHub:    <td><a href="http://callback.github.com/callback-weinre">http://callback.github.com/callback-weinre</a>
-<tr><td>- source at GitHub:                <td><a href="https://github.com/callback/callback-weinre">https://github.com/callback/callback-weinre</a>
-<tr><td>- discussion at Google Group:      <td><a href="http://groups.google.com/group/weinre">http://groups.google.com/group/weinre</a>
-</table>
-
-<p>More information on <span class="weinre">weinre</span>'s big brothers, Web Inspector / Google Chrome
-Developer Tools, is available at
-<a href="http://code.google.com/chrome/devtools/docs/overview.html">Google's Chrome Dev Tools pages</a>
-and
-<a href="http://developer.apple.com/library/safari/#documentation/appleapplications/Conceptual/Safari_Developer_Guide/DebuggingYourWebsite/DebuggingYourWebsite.html">Apple's Web Inspector pages</a>.
-
-<p>If you aren't familiar with FireBug or Web Inspector,
-<span class="weinre">weinre</span> isn't going to make too much sense to you.
-<span class="weinre">weinre</span> reuses the user interface code from the
-<a href="http://trac.webkit.org/wiki/WebInspector">Web Inspector project at WebKit</a>,
-so if you've used Safari's Web Inspector or Chrome's Developer Tools,
-<span class="weinre">weinre</span> will be very familiar.  If you're not
-familiar with Web Inspector, the links above to Google's and Apple's documentation
-will be useful.
-
-<p>Here's an example session using <span class="weinre">weinre</span>:
-
-<p><img src="images/weinre-demo.jpg">
-
-<p>Two screen captures are shown above.  On the left is the
-<span class="weinre">weinre</span> <b>client</b> application, displaying debug
-information.
-On the right is the <b>target</b> web page, running in Mobile Safari in the iOS Simulator.
-
-<p>In normal usage, you will be running the <b>client</b> application in a browser
-on your desktop/laptop, and running a <b>target</b> web page on your mobile device.
-
-<p>In the session above, the debugger is display the Elements panel, with the
-embedded console expanded in the bottom third of the window.  In the console
-area, we've entered two statements:
-
-<pre>
-document.body.style.backgroundColor
-document.body.style.backgroundColor = "pink"
-</pre>
-
-<p>The result of running the first statement shows the value of the body's background style is not set.
-The second statement sets the body's background to pink.  That horrifying pink
-background is then rendered in the <b>target</b>'s window.
-
-<p>In addition, an <tt>h1</tt> element is selected in the upper third of the
-Elements panel, which causes the side panels on the right to be filled in with
-relevant information.  In this case, the matched CSS rules for that <tt>h1</tt>
-element are being shown.
-
-<p>If you are familiar with WebKit's Web Inspector,
-a partial list of differences between it and <span class="weinre">weinre</span>
-are listed below:
-
-<ul class="spaced">
-
-<li><span class="weinre">weinre</span> does not make use of any 'native' code,
-it's all JavaScript (and currently Java code for the 'server').
-
-<li>Because <span class="weinre">weinre</span> doesn't use 'native' code,
-it's functionality is limited.  For instance, source level debug of JavaScript
-is not <span class="strike">possible</span>
-<a href="http://lexandera.com/aardwolf/">easy</a>.
-
-<li>Because <span class="weinre">weinre</span> doesn't use 'native' code,
-the debug target code will run on browsers
-without specialized debug support.  For instance, a browser running on your phone.
-
-<li><span class="weinre">weinre</span> supports 'remote' interaction,
-so you can run the debugger user interface on one
-machine and can debug a web page running
-on another machine.  For instance, debug a web page displayed on your phone from your
-laptop.
-
-<li>Because <span class="weinre">weinre</span> supports 'remote' interaction,
-multiple debug clients can be debugging the same debug target at the same time.
-
-<li>One thing <b>not</b> different from Web Inspector is that the debug client
-user interface only runs on WebKit-based browsers.
-
-</ul>
-
-<!-- ======================================================== -->
-<h2>Supported Libraries and Platforms</h2>
-
-<p>Generally version numbers listed here are the earliest
-versions of the relevant thing that have been tested.
-Later versions of those things are also hopefully supported,
-but let us know.
-
-<h3>Platforms not supported</h3>
-
-<ul>
-<li>iOS 3.1.3 or earlier
-<li>webOS 1.45 or earlier
-</ul>
-
-<h3>Libraries not supported</h3>
-
-<ul>
-<li>versions of Prototype.js before version 1.7 are not supported,
-as they do not support the <tt>JSON.stringify()</tt> API correctly.  You
-will get an <tt>alert()</tt> in the web page you are debugging if you
-attempt to debug it with <span class="weinre">weinre</span> and you are using an unsupported
-version of Prototype.js.
-</ul>
-
-<h3>Platforms supported - debug client</h3>
-<p>The browser where the debugger user interface runs.
-
-<ul>
-<li>weinre Mac application - Mac OS X 10.6 64-bit
-<li>Google Chrome 8.x
-<li>Apple Safari 5.x
-</ul>
-
-<h3>Platforms supported - debug target</h3>
-<p>The browser with the page you are debugging.
-
-<ul>
-<li>Android 2.2 Browser application
-<li>Android 2.2 w/PhoneGap 0.9.2
-<li>iOS 4.2.x Mobile Safari application
-<li>BlackBerry v6.x simulator
-<li>webOS 2.x (unspecified version)
-</ul>
-
-
-
-<!--
- * weinre is available under *either* the terms of the modified BSD license *or* the
- * MIT License (2008). See http://opensource.org/licenses/alphabetical for full text.
- *
- * Copyright (c) 2010, 2011 IBM Corporation
--->
-
-<div class="toc">
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<p>
-  <a href="Home.html">Home</a>
-- <a href="UserInterface.html">User Interface</a>
-- <a href="Installing.html">Installing</a>
-- <a href="Running.html">Running</a>
-- <a href="MultiUser.html">Multi-User</a>
-- <a href="Security.html">Security</a>
-- <a href="Building.html">Building</a>
-- <a href="ChangeLog.html">ChangeLog</a>
-- <a href="License.html">License</a>
-
-<br><img src="images/weinre-icon-128x128.png">
-</div>
-
+<p>Information on weinre is available here: 
+<a href="http://people.apache.org/~pmuellr/weinre/">http://people.apache.org/~pmuellr/weinre/</a>
 </body>
+
 </html>
